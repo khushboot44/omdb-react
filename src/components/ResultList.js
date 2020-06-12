@@ -12,22 +12,20 @@ class ResultList extends Component {
 
   handleChange = value => {
     console.log("value :>> ", value);
-    if (value <= 1) {
-      this.setState({
-        minValue: 0,
-        maxValue: 3
-      });
-    } else {
-      this.setState({
-        minValue: this.state.maxValue,
-        maxValue: value * 3
-      });
-    }
+    console.log("start value", (value - 1) * 3);
+    console.log("end value", value * 3);
+
+    this.setState({
+      minValue: (value - 1) * 3,
+      maxValue: value * 3
+    });
   };
 
   render() {
     console.log("minValue :>> ", this.state.minValue);
     console.log("maxValue :>> ", this.state.maxValue);
+
+    console.log("===================");
 
     if (
       this.props.movieList &&
