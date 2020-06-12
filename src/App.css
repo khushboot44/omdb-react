@@ -1,0 +1,26 @@
+.App {
+    text-align: center;
+    margin: 0 auto;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.imageResult {
+    height: 100px;
+    width: 100px;
+    margin-right: 30px;
+  }
+  
+.container-heading {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    color: #a19e9e;
+    font-weight: 700;
+    padding: 10px 0 10px 0;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
