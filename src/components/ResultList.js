@@ -11,10 +11,6 @@ class ResultList extends Component {
   }
 
   handleChange = value => {
-    console.log("value :>> ", value);
-    console.log("start value", (value - 1) * 3);
-    console.log("end value", value * 3);
-
     this.setState({
       minValue: (value - 1) * 3,
       maxValue: value * 3
@@ -22,17 +18,25 @@ class ResultList extends Component {
   };
 
   render() {
-    console.log("minValue :>> ", this.state.minValue);
-    console.log("maxValue :>> ", this.state.maxValue);
-
-    console.log("===================");
-
     if (
       this.props.movieList &&
       this.props.movieList.isLoading &&
       this.props.movieList.isLoading === true
     ) {
-      return <div>Loading.....</div>;
+      return <div style={{ marginTop: "2rem" }}>Loading.....</div>;
+    }
+
+    if (
+      this.props.movieList &&
+      this.props.movieList.isLoading === false &&
+      this.props.movieList.hasError === false &&
+      !this.props.movieList.data
+    ) {
+      return (
+        <div style={{ marginTop: "2rem" }}>
+          <h3>No result found</h3>
+        </div>
+      );
     }
 
     if (
@@ -61,7 +65,11 @@ class ResultList extends Component {
             .map((movie, index) => (
               <ul className="container-heading">
                 <li>
-                  <img src={movie.Poster} className="imageResult" />
+                  <img
+                    src={movie.Poster}
+                    className="imageResult"
+                    alt={movie.Title}
+                  />
                 </li>
                 <li key={index}>{movie.Title}</li>
                 {this.props.showDetails && (

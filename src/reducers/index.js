@@ -1,14 +1,13 @@
 const initialState = {
   movieList: {},
   movieDetails: {}
-
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_MOVIES':
+    case "GET_MOVIES":
       return Object.assign({}, state, {
-        currentRequest: '',
+        currentRequest: "",
         movieList: {
           data: {},
           hasError: false,
@@ -16,9 +15,9 @@ const reducer = (state = initialState, action) => {
         }
       });
 
-    case 'GET_MOVIES_SUCCESS':
+    case "GET_MOVIES_SUCCESS":
       return Object.assign({}, state, {
-        currentRequest: 'getMovieList',
+        currentRequest: "getMovieList",
         movieList: {
           data: action.payload,
           hasError: false,
@@ -26,9 +25,9 @@ const reducer = (state = initialState, action) => {
         }
       });
 
-    case 'GET_MOVIES_FAILURE':
+    case "GET_MOVIES_FAILURE":
       return Object.assign({}, state, {
-        currentRequest: 'getMovieList',
+        currentRequest: "getMovieList",
         movieList: {
           data: action.payload.data,
           hasError: true,
@@ -36,15 +35,15 @@ const reducer = (state = initialState, action) => {
         }
       });
 
-    case 'RESET_MOVIES':
+    case "RESET_MOVIES":
       return Object.assign({}, state, {
-        currentRequest: '',
+        currentRequest: "",
         movieList: {}
       });
 
-    case 'GET_MOVIES_DETAIL':
+    case "GET_MOVIES_DETAIL":
       return Object.assign({}, state, {
-        currentRequest: '',
+        currentRequest: "",
         movieDetails: {
           data: {},
           hasError: false,
@@ -52,9 +51,9 @@ const reducer = (state = initialState, action) => {
         }
       });
 
-    case 'GET_MOVIES_DETAIL_SUCCESS':
+    case "GET_MOVIES_DETAIL_SUCCESS":
       return Object.assign({}, state, {
-        currentRequest: 'movieDetail',
+        currentRequest: "movieDetail",
         movieDetails: {
           data: action.payload,
           hasError: false,
@@ -62,25 +61,25 @@ const reducer = (state = initialState, action) => {
         }
       });
 
-    case 'GET_MOVIES_DETAIL_FAILURE':
+    case "GET_MOVIES_DETAIL_FAILURE":
       return Object.assign({}, state, {
-        currentRequest: '',
+        currentRequest: "",
         movieDetails: {
           data: action.payload,
           hasError: false,
           isLoading: false
         }
       });
-    
-      case 'RESET_MOVIES_DETAIL':
-          return Object.assign({}, state, {
-            currentRequest: '',
-            movieDetails: {
-              data: {},
-              hasError: false,
-              isLoading: false
-            }
-        });
+
+    case "RESET_MOVIES_DETAIL":
+      return Object.assign({}, state, {
+        currentRequest: "",
+        movieDetails: {
+          data: {},
+          hasError: false,
+          isLoading: false
+        }
+      });
 
     default:
       return state;
